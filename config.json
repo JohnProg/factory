@@ -1,4 +1,7 @@
 {
-    "Domain"   : "localhost",
-    "BindAddr" : ":8080"
+    "Domain"      : "localhost",
+    "BindAddr"    : "localhost:8080",
+    "UseTLS"      : false,
+    "CertFile"    : "",
+    "PrivKeyFile" : "",
 }

@@ -29,5 +29,9 @@ func main() {
 	http.Handle("/", router)
 
 	fmt.Println("Listening on " + config.BindAddr)
-	http.ListenAndServe(config.BindAddr, nil)
+	if config.UseTLS {
+		http.ListenAndServeTLS(config.BindAddr, config.CertFile, config.PrivKeyFile, nil)
+	} else {
+		http.ListenAndServe(config.BindAddr, nil)
+	}
 }
