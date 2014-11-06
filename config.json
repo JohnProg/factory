@@ -3,5 +3,5 @@
     "BindAddr"    : "localhost:8080",
     "UseTLS"      : false,
     "CertFile"    : "",
-    "PrivKeyFile" : "",
+    "PrivKeyFile" : ""
 }
