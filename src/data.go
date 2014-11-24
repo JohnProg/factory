@@ -34,14 +34,13 @@ type Oo struct {
 	Id        bson.ObjectId "_id"
 	Name      string
 	Owner     bson.ObjectId
-	Inventory []Item
+	Inventory map[string]Item
 	Data      map[string]interface{}
 }
 
 type Item struct {
-	AppOwner bson.ObjectId
-	Name     string
-	Qty      int64
+	Name string
+	Qty  int64
 }
 
 type App struct {
@@ -50,4 +49,6 @@ type App struct {
 	Secret      string
 	Version     string
 	Permissions []string
+	Properties  map[string]interface{}
+	Data        map[string]interface{}
 }
