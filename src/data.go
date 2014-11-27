@@ -20,6 +20,7 @@ type Factory struct {
 }
 
 type User struct {
+	Realm      string
 	Id         bson.ObjectId "_id"
 	Name       string
 	Email      string
@@ -49,6 +50,7 @@ type App struct {
 	Secret      string
 	Version     string
 	Permissions []string
+	Budget      big.Int
 	Properties  map[string]interface{}
 	Data        map[string]interface{}
 }
