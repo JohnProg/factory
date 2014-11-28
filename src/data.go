@@ -3,6 +3,7 @@ package main
 import (
 	"gopkg.in/mgo.v2/bson"
 	"math/big"
+	"time"
 )
 
 type Config struct {
@@ -20,15 +21,16 @@ type Factory struct {
 }
 
 type User struct {
-	Realm      string
-	Id         bson.ObjectId "_id"
-	Name       string
-	Email      string
-	Password   string
-	Registered int64
-	Credits    big.Int
-	Inventory  map[string]int
-	Data       map[string]interface{}
+	Realm        string
+	Id           bson.ObjectId "_id"
+	Name         string
+	Email        string
+	Password     string
+	Registered   int64
+	Credits      big.Int
+	Inventory    map[string]int
+	Data         map[string]interface{}
+	ActiveTokens []Token
 }
 
 type Oo struct {
@@ -53,4 +55,9 @@ type App struct {
 	Budget      big.Int
 	Properties  map[string]interface{}
 	Data        map[string]interface{}
+}
+
+type Token struct {
+	Secret     string
+	Expiration int64
 }

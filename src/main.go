@@ -24,7 +24,10 @@ func main() {
 	router := mux.NewRouter()
 
 	GET := router.Methods("GET").Subrouter()
-	GET.HandleFunc("/", helloHTTP)
+	GET.HandleFunc("/", apiHello)
+
+	POST := router.Methods("POST").Subrouter()
+	POST.HandleFunc("/register", apiRegisterUser)
 
 	http.Handle("/", router)
 
