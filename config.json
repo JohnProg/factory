@@ -1,5 +1,11 @@
 {
     "Domain"      : "localhost",
+    "Database"    : {
+        "Hosts" : [
+            "localhost"
+        ],
+        "Name" : "oofactory"
+    },
     "BindAddr"    : "localhost:8080",
     "UseTLS"      : false,
     "CertFile"    : "",

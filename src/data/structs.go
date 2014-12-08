@@ -1,14 +1,17 @@
-package main
+package data
 
 import (
 	"gopkg.in/mgo.v2/bson"
 	"math/big"
-	"time"
 )
 
 type Config struct {
-	Domain      string
-	BindAddr    string
+	Domain   string
+	BindAddr string
+	Database struct {
+		Hosts []string
+		Name  string
+	}
 	UseTLS      bool
 	CertFile    string
 	PrivKeyFile string
@@ -28,9 +31,9 @@ type User struct {
 	Password     string
 	Registered   int64
 	Credits      big.Int
-	Inventory    map[string]int
+	Inventory    map[string]Item
 	Data         map[string]interface{}
-	ActiveTokens []Token
+	ActiveTokens []string
 }
 
 type Oo struct {
@@ -43,6 +46,8 @@ type Oo struct {
 
 type Item struct {
 	Name string
+	Show bool
+	Data map[string]interface{}
 	Qty  int64
 }
 
@@ -55,9 +60,5 @@ type App struct {
 	Budget      big.Int
 	Properties  map[string]interface{}
 	Data        map[string]interface{}
-}
-
-type Token struct {
-	Secret     string
-	Expiration int64
+	Token       string
 }
